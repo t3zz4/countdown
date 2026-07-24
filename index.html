@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Countdown</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#000);
+    background-size:400% 400%;
+    animation:bg 15s ease infinite;
+    color:white;
+    overflow:hidden;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    text-align:center;
+    padding:40px;
+    border-radius:25px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    box-shadow:0 0 40px rgba(0,0,0,.4);
+}
+
+h1{
+    font-size:3em;
+    margin-bottom:15px;
+}
+
+p{
+    opacity:.8;
+    margin-bottom:35px;
+}
+
+#countdown{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.box{
+    width:120px;
+    height:120px;
+    background:rgba(255,255,255,.08);
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    transition:.3s;
+}
+
+.box:hover{
+    transform:scale(1.08);
+}
+
+.number{
+    font-size:3em;
+    font-weight:bold;
+}
+
+.label{
+    margin-top:8px;
+    font-size:.9em;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+#finished{
+    font-size:2em;
+    display:none;
+}
+
+@media(max-width:700px){
+
+.box{
+    width:90px;
+    height:90px;
+}
+
+.number{
+    font-size:2em;
+}
+
+h1{
+    font-size:2em;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>⏳ Countdown</h1>
+
+<p>Mancano al 15 Agosto 2026</p>
+
+<div id="countdown">
+
+<div class="box">
+<div class="number" id="days">0</div>
+<div class="label">Giorni</div>
+</div>
+
+<div class="box">
+<div class="number" id="hours">0</div>
+<div class="label">Ore</div>
+</div>
+
+<div class="box">
+<div class="number" id="minutes">0</div>
+<div class="label">Minuti</div>
+</div>
+
+<div class="box">
+<div class="number" id="seconds">0</div>
+<div class="label">Secondi</div>
+</div>
+
+</div>
+
+<div id="finished">
+🎉 È arrivato il 15 Agosto 2026!
+</div>
+
+</div>
+
+<script>
+
+const targetDate = new Date("2026-08-15T00:00:00").getTime();
+
+function updateCountdown(){
+
+    const now = new Date().getTime();
+
+    const distance = targetDate - now;
+
+    if(distance<=0){
+
+        document.getElementById("countdown").style.display="none";
+        document.getElementById("finished").style.display="block";
+        return;
+
+    }
+
+    const days=Math.floor(distance/(1000*60*60*24));
+    const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+    const seconds=Math.floor((distance%(1000*60))/1000);
+
+    document.getElementById("days").innerHTML=days;
+    document.getElementById("hours").innerHTML=hours;
+    document.getElementById("minutes").innerHTML=minutes;
+    document.getElementById("seconds").innerHTML=seconds;
+
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+</script>
+
+</body>
+</html>
