@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Manca poco amore🩷</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(-45deg, #d63384, #e84393, #ff7eb3, #ffb6c1, #fd79a8);
+    background-size: 400% 400%;
+    animation: bg 12s ease infinite;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    text-align:center;
+    padding: 45px 35px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px 0 rgba(199, 21, 133, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    max-width: 90%;
+}
+
+h1{
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 10px rgba(139, 0, 70, 0.25);
+    color: #fff;
+}
+
+p{
+    font-size: 1.2em;
+    opacity: 0.95;
+    margin-bottom: 35px;
+    font-weight: 500;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#countdown{
+    display:flex;
+    gap: 20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.box{
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 24px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 15px rgba(199, 21, 133, 0.15);
+    animation: float 4s ease-in-out infinite;
+}
+
+.box:nth-child(2) { animation-delay: 0.5s; }
+.box:nth-child(3) { animation-delay: 1s; }
+.box:nth-child(4) { animation-delay: 1.5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.box:hover{
+    transform: scale(1.1) translateY(-5px);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.6);
+}
+
+.number{
+    font-size: 3em;
+    font-weight: 800;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.label{
+    margin-top: 5px;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+#finished{
+    font-size: 2.5em;
+    font-weight: bold;
+    display:none;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+@media(max-width:700px){
+
+.box{
+    width: 85px;
+    height: 85px;
+    border-radius: 18px;
+}
+
+.number{
+    font-size: 2em;
+}
+
+h1{
+    font-size: 2em;
+}
+
+p{
+    font-size: 1em;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>✨ Manca poco amore🩷 ✨</h1>
+
+<p>Mancano al 15 Agosto 2026 🥳</p>
+
+<div id="countdown">
+
+<div class="box">
+<div class="number" id="days">00</div>
+<div class="label">Giorni</div>
+</div>
+
+<div class="box">
+<div class="number" id="hours">00</div>
+<div class="label">Ore</div>
+</div>
+
+<div class="box">
+<div class="number" id="minutes">00</div>
+<div class="label">Minuti</div>
+</div>
+
+<div class="box">
+<div class="number" id="seconds">00</div>
+<div class="label">Secondi</div>
+</div>
+
+</div>
+
+<div id="finished">
+🎉 È arrivato il 15 Agosto 2026! 💖
+</div>
+
+</div>
+
+<script>
+
+const targetDate = new Date("2026-08-15T00:00:00").getTime();
+
+function formatTime(time) {
+    return time < 10 ? `0${time}` : time;
+}
+
+function updateCountdown(){
+
+    const now = new Date().getTime();
+
+    const distance = targetDate - now;
+
+    if(distance <= 0){
+
+        document.getElementById("countdown").style.display="none";
+        document.getElementById("finished").style.display="block";
+        return;
+
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerHTML = formatTime(days);
+    document.getElementById("hours").innerHTML = formatTime(hours);
+    document.getElementById("minutes").innerHTML = formatTime(minutes);
+    document.getElementById("seconds").innerHTML = formatTime(seconds);
+
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+</script>
+
+</body>
+</html>
