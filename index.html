@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Countdown</title>
+<title>Manca poco amore🩷</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body{
@@ -19,11 +19,11 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#000);
-    background-size:400% 400%;
-    animation:bg 15s ease infinite;
-    color:white;
-    overflow:hidden;
+    background: linear-gradient(-45deg, #ff758c, #ff7eb3, #7afcff, #feff9c);
+    background-size: 400% 400%;
+    animation: bg 12s ease infinite;
+    color: #ffffff;
+    overflow: hidden;
 }
 
 @keyframes bg{
@@ -34,76 +34,107 @@ body{
 
 .container{
     text-align:center;
-    padding:40px;
-    border-radius:25px;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(20px);
-    box-shadow:0 0 40px rgba(0,0,0,.4);
+    padding: 45px 35px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px 0 rgba(255, 105, 180, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    max-width: 90%;
 }
 
 h1{
-    font-size:3em;
-    margin-bottom:15px;
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    color: #fff;
 }
 
 p{
-    opacity:.8;
-    margin-bottom:35px;
+    font-size: 1.2em;
+    opacity: 0.95;
+    margin-bottom: 35px;
+    font-weight: 500;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 #countdown{
     display:flex;
-    gap:20px;
+    gap: 20px;
     flex-wrap:wrap;
     justify-content:center;
 }
 
 .box{
-    width:120px;
-    height:120px;
-    background:rgba(255,255,255,.08);
-    border-radius:20px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    transition:.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    animation: float 4s ease-in-out infinite;
+}
+
+.box:nth-child(2) { animation-delay: 0.5s; }
+.box:nth-child(3) { animation-delay: 1s; }
+.box:nth-child(4) { animation-delay: 1.5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
 .box:hover{
-    transform:scale(1.08);
+    transform: scale(1.1) translateY(-5px);
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 8px 25px rgba(255, 182, 193, 0.6);
 }
 
 .number{
-    font-size:3em;
-    font-weight:bold;
+    font-size: 3em;
+    font-weight: 800;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
 .label{
-    margin-top:8px;
-    font-size:.9em;
-    text-transform:uppercase;
-    letter-spacing:2px;
+    margin-top: 5px;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
 }
 
 #finished{
-    font-size:2em;
+    font-size: 2.5em;
+    font-weight: bold;
     display:none;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 @media(max-width:700px){
 
 .box{
-    width:90px;
-    height:90px;
+    width: 85px;
+    height: 85px;
+    border-radius: 18px;
 }
 
 .number{
-    font-size:2em;
+    font-size: 2em;
 }
 
 h1{
-    font-size:2em;
+    font-size: 2em;
+}
+
+p{
+    font-size: 1em;
 }
 
 }
@@ -114,36 +145,36 @@ h1{
 
 <div class="container">
 
-<h1>⏳ Countdown</h1>
+<h1>✨ Manca poco amore🩷 ✨</h1>
 
-<p>Mancano al 15 Agosto 2026</p>
+<p>Mancano al 15 Agosto 2026 🥳</p>
 
 <div id="countdown">
 
 <div class="box">
-<div class="number" id="days">0</div>
+<div class="number" id="days">00</div>
 <div class="label">Giorni</div>
 </div>
 
 <div class="box">
-<div class="number" id="hours">0</div>
+<div class="number" id="hours">00</div>
 <div class="label">Ore</div>
 </div>
 
 <div class="box">
-<div class="number" id="minutes">0</div>
+<div class="number" id="minutes">00</div>
 <div class="label">Minuti</div>
 </div>
 
 <div class="box">
-<div class="number" id="seconds">0</div>
+<div class="number" id="seconds">00</div>
 <div class="label">Secondi</div>
 </div>
 
 </div>
 
 <div id="finished">
-🎉 È arrivato il 15 Agosto 2026!
+🎉 È arrivato il 15 Agosto 2026! 💖
 </div>
 
 </div>
@@ -152,13 +183,17 @@ h1{
 
 const targetDate = new Date("2026-08-15T00:00:00").getTime();
 
+function formatTime(time) {
+    return time < 10 ? `0${time}` : time;
+}
+
 function updateCountdown(){
 
     const now = new Date().getTime();
 
     const distance = targetDate - now;
 
-    if(distance<=0){
+    if(distance <= 0){
 
         document.getElementById("countdown").style.display="none";
         document.getElementById("finished").style.display="block";
@@ -166,20 +201,20 @@ function updateCountdown(){
 
     }
 
-    const days=Math.floor(distance/(1000*60*60*24));
-    const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-    const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
-    const seconds=Math.floor((distance%(1000*60))/1000);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("days").innerHTML=days;
-    document.getElementById("hours").innerHTML=hours;
-    document.getElementById("minutes").innerHTML=minutes;
-    document.getElementById("seconds").innerHTML=seconds;
+    document.getElementById("days").innerHTML = formatTime(days);
+    document.getElementById("hours").innerHTML = formatTime(hours);
+    document.getElementById("minutes").innerHTML = formatTime(minutes);
+    document.getElementById("seconds").innerHTML = formatTime(seconds);
 
 }
 
 updateCountdown();
-setInterval(updateCountdown,1000);
+setInterval(updateCountdown, 1000);
 
 </script>
 
