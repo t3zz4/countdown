@@ -277,7 +277,7 @@ p{
 
 
 /* =========================
-   MESSAGGIO 5 MESI
+   MESSAGGIO SEGRETO
 ========================= */
 
 #loveMessage{
@@ -715,13 +715,13 @@ p{
 
 
     <!-- =====================
-         MESSAGGIO DEI 5 MESI
+         MESSAGGIO SEGRETO
     ====================== -->
 
     <div id="loveMessage">
 
         BUON COMPLEANNO❤️<br>
-         AMORE MIO ❤️
+        AMORE MIO ❤️
 
     </div>
 
@@ -936,7 +936,49 @@ setInterval(
 
 
 /* ==================================================
-   CONTROLLO DEL 5 AGOSTO
+   PERIODO DI ATTIVAZIONE DEL BOTTONE
+================================================== */
+
+/*
+   IL BOTTONE È ATTIVO:
+
+   DAL:
+   14/08/2026 00:00:00
+
+   AL:
+   21/08/2026 00:00:00
+
+   Quindi sono inclusi:
+
+   14 agosto
+   15 agosto
+   16 agosto
+   17 agosto
+   18 agosto
+   19 agosto
+   20 agosto
+
+   Il 21 agosto è nuovamente disattivato.
+*/
+
+
+const buttonStartDate =
+
+    new Date(
+        "2026-08-14T00:00:00"
+    );
+
+
+const buttonEndDate =
+
+    new Date(
+        "2026-08-21T00:00:00"
+    );
+
+
+
+/* ==================================================
+   CONTROLLO DATA DEL BOTTONE
 ================================================== */
 
 function checkButtonDate(){
@@ -945,40 +987,6 @@ function checkButtonDate(){
     const now =
 
         new Date();
-
-
-
-    /*
-       INIZIO DEL 5 AGOSTO
-
-       05/08/2026
-       ore 00:00:00
-    */
-
-    const startDate =
-
-        new Date(
-            "2026-08-14T00:00:00"
-        );
-
-
-
-    /*
-       FINE DEL 5 AGOSTO
-
-       06/08/2026
-       ore 00:00:00
-
-       Quindi il 5 agosto
-       è completamente incluso.
-    */
-
-    const endDate =
-
-        new Date(
-            "2026-08-20T00:00:00"
-        );
-
 
 
     const button =
@@ -990,12 +998,16 @@ function checkButtonDate(){
 
 
     /*
-       SE SIAMO NEL 5 AGOSTO
+       SE SIAMO TRA IL 14
+       E IL 20 AGOSTO
     */
 
     if(
-        now >= startDate &&
-        now < endDate
+
+        now >= buttonStartDate &&
+
+        now < buttonEndDate
+
     ){
 
 
@@ -1011,7 +1023,8 @@ function checkButtonDate(){
 
 
     /*
-       PRIMA O DOPO IL 5 AGOSTO
+       PRIMA DEL 14
+       O DAL 21 AGOSTO
     */
 
     else{
@@ -1039,21 +1052,23 @@ checkButtonDate();
 /*
    Controlla ogni secondo.
 
-   In questo modo se la pagina
-   rimane aperta allo scoccare
-   della mezzanotte, il bottone
-   cambia automaticamente.
+   Se la pagina è aperta allo scoccare
+   della mezzanotte, il bottone cambia
+   automaticamente.
 */
 
 setInterval(
+
     checkButtonDate,
+
     1000
+
 );
 
 
 
 /* ==================================================
-   MOSTRA MESSAGGIO 5 MESI
+   MOSTRA MESSAGGIO SEGRETO
 ================================================== */
 
 function showLoveMessage(){
@@ -1095,37 +1110,29 @@ function showLoveMessage(){
 
 
 
-    /*
+    /* ==================================================
        CONTROLLO DI SICUREZZA
-
-       Se qualcuno prova a richiamare
-       la funzione fuori dal 5 agosto,
-       non succede niente.
-    */
+    ================================================== */
 
     const now =
 
         new Date();
 
 
-    const startDate =
 
-        new Date(
-            "2026-08-05T00:00:00"
-        );
-
-
-    const endDate =
-
-        new Date(
-            "2026-08-06T00:00:00"
-        );
-
-
+    /*
+       Se qualcuno prova a richiamare
+       la funzione fuori dal periodo
+       14 → 20 agosto,
+       non succede niente.
+    */
 
     if(
-        now < startDate ||
-        now >= endDate
+
+        now < buttonStartDate ||
+
+        now >= buttonEndDate
+
     ){
 
 
@@ -1147,7 +1154,6 @@ function showLoveMessage(){
        NASCONDE IL CONTENUTO ORIGINALE
     ================================================== */
 
-
     title.style.display = "none";
 
 
@@ -1158,8 +1164,19 @@ function showLoveMessage(){
 
 
 
+    /*
+       Nasconde anche il messaggio
+       di fine countdown.
+    */
+
+    document.getElementById(
+        "finished"
+    ).style.display = "none";
+
+
+
     /* ==================================================
-       MOSTRA IL MESSAGGIO
+       MOSTRA IL MESSAGGIO SEGRETO
     ================================================== */
 
     message.style.display = "block";
@@ -1183,60 +1200,92 @@ function showLoveMessage(){
 
 
         message.style.display =
+
             "none";
 
 
         title.style.display =
+
             "block";
 
 
         subtitle.style.display =
+
             "block";
 
 
-        countdown.style.display =
-            "flex";
+
+        /*
+           Controlliamo che il countdown
+           sia ancora valido.
+        */
+
+        const currentTime =
+
+            new Date();
+
+
+
+        /*
+           Se siamo prima del 15 agosto,
+           mostra ancora il countdown.
+        */
+
+        if(
+
+            currentTime <
+
+            new Date(
+                "2026-08-15T00:00:00"
+            )
+
+        ){
+
+
+            countdown.style.display =
+
+                "flex";
+
+
+            document.getElementById(
+                "finished"
+            ).style.display =
+
+                "none";
+
+        }
+
+
+        /*
+           Se siamo dal 15 agosto in poi,
+           mostra il messaggio di fine countdown.
+        */
+
+        else{
+
+
+            countdown.style.display =
+
+                "none";
+
+
+            document.getElementById(
+                "finished"
+            ).style.display =
+
+                "block";
+
+        }
 
 
 
         /*
            Controlliamo nuovamente
-           che sia ancora il 5 agosto.
+           se il bottone è ancora
+           nel periodo 14 → 20 agosto.
         */
 
-        const currentTime =
-            new Date();
-
-
-
-        if(
-            currentTime >= startDate &&
-            currentTime < endDate
-        ){
-
-
-            button.disabled =
-                false;
-
-
-            button.innerHTML =
-                "💌 Premi qui amore 💌";
-
-
-        }
-
-
-        else{
-
-
-            button.disabled =
-                true;
-
-
-            button.innerHTML =
-                "Lavori in corso🎂..";
-
-        }
+        checkButtonDate();
 
 
     }, 30000);
