@@ -1,1301 +1,403 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scusami cicci 🥺❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.7), transparent 25%),
+                radial-gradient(circle at 80% 80%, rgba(255,180,205,0.5), transparent 30%),
+                linear-gradient(135deg, #ffd6e5, #fff0f5, #ffc6dc);
+
+            position: relative;
+        }
+
+        /* =========================
+           CUORICINI SULLO SFONDO
+        ========================= */
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 25px;
+            animation: float 8s linear infinite;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            bottom: -50px;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            left: 25%;
+            bottom: -50px;
+            animation-delay: 2s;
+            font-size: 18px;
+        }
+
+        .heart:nth-child(3) {
+            left: 45%;
+            bottom: -50px;
+            animation-delay: 4s;
+            font-size: 30px;
+        }
+
+        .heart:nth-child(4) {
+            left: 65%;
+            bottom: -50px;
+            animation-delay: 1s;
+            font-size: 20px;
+        }
+
+        .heart:nth-child(5) {
+            left: 85%;
+            bottom: -50px;
+            animation-delay: 3s;
+            font-size: 28px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-115vh) rotate(25deg);
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           CONTENITORE
+        ========================= */
+
+        .container {
+            width: min(90%, 650px);
+            padding: 45px 35px;
 
-<meta charset="UTF-8">
+            text-align: center;
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
 
-<title>Manca poco amore🩷</title>
+            border: 1px solid rgba(255, 255, 255, 0.8);
 
+            border-radius: 35px;
 
-<style>
+            box-shadow:
+                0 20px 60px rgba(190, 80, 120, 0.2),
+                inset 0 1px 0 rgba(255,255,255,0.8);
 
-/* =========================
-   IMPOSTAZIONI GENERALI
-========================= */
+            animation: appear 0.8s ease;
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
 
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
 
-body{
+        /* =========================
+           TESTO
+        ========================= */
 
-    min-height:100vh;
+        h1 {
+            color: #a93663;
 
-    display:flex;
+            font-size: clamp(2rem, 7vw, 3.5rem);
+            line-height: 1.15;
 
-    justify-content:center;
+            font-weight: 800;
 
-    align-items:center;
+            text-shadow:
+                0 3px 10px rgba(169, 54, 99, 0.15);
 
-    background:linear-gradient(
-        -45deg,
-        #d63384,
-        #e84393,
-        #ff7eb3,
-        #ffb6c1,
-        #fd79a8
-    );
+            margin-bottom: 25px;
+        }
 
-    background-size:400% 400%;
+        .question {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            color: #713047;
 
-    animation:bg 12s ease infinite;
+            font-weight: 600;
 
-    color:#ffffff;
+            margin-bottom: 35px;
+        }
 
-    overflow:hidden;
+        /* =========================
+           BOTTONI
+        ========================= */
 
-    padding:20px;
-}
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
 
+            min-height: 60px;
 
-/* ANIMAZIONE SFONDO */
+            position: relative;
+        }
 
-@keyframes bg{
+        button {
+            border: none;
+            border-radius: 999px;
 
-    0%{
-        background-position:0% 50%;
-    }
+            padding: 14px 35px;
 
-    50%{
-        background-position:100% 50%;
-    }
+            font-size: 1.1rem;
+            font-weight: 700;
 
-    100%{
-        background-position:0% 50%;
-    }
+            cursor: pointer;
 
-}
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
 
+        #yes {
+            background: linear-gradient(135deg, #ff4f87, #e8326d);
+            color: white;
 
-/* =========================
-   CONTENITORE
-========================= */
+            box-shadow:
+                0 8px 20px rgba(232, 50, 109, 0.3);
+        }
 
-.container{
+        #yes:hover {
+            transform: scale(1.08);
+            box-shadow:
+                0 12px 28px rgba(232, 50, 109, 0.4);
+        }
 
-    width:100%;
+        #yes:active {
+            transform: scale(0.95);
+        }
 
-    max-width:700px;
+        #no {
+            background: white;
+            color: #a93663;
 
-    text-align:center;
+            box-shadow:
+                0 6px 18px rgba(100, 40, 70, 0.15);
 
-    padding:45px 35px;
+            position: relative;
+        }
 
-    border-radius:30px;
+        #no:hover {
+            transform: scale(1.05);
+        }
 
-    background:rgba(255,255,255,0.2);
+        /* =========================
+           SCHERMATA FINALE
+        ========================= */
 
-    backdrop-filter:blur(15px);
+        .final-message {
+            display: none;
 
-    -webkit-backdrop-filter:blur(15px);
+            animation: finalAppear 1s ease;
+        }
 
-    box-shadow:
-        0 8px 32px 0 rgba(199,21,133,0.35);
+        .final-message h2 {
+            color: #a93663;
 
-    border:
-        1px solid rgba(255,255,255,0.4);
+            font-size: clamp(2rem, 7vw, 3.5rem);
+            line-height: 1.2;
 
-}
+            font-weight: 800;
 
+            text-shadow:
+                0 4px 15px rgba(169, 54, 99, 0.15);
+        }
 
-/* =========================
-   TITOLO
-========================= */
+        @keyframes finalAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
 
-h1{
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
-    font-size:3em;
+        /* =========================
+           MOBILE
+        ========================= */
 
-    line-height:1.15;
+        @media (max-width: 500px) {
 
-    margin-bottom:10px;
+            .container {
+                padding: 35px 22px;
+                border-radius: 28px;
+            }
 
-    text-shadow:
-        0 4px 10px rgba(139,0,70,0.25);
+            h1 {
+                font-size: 2.1rem;
+            }
 
-    color:#fff;
+            .question {
+                font-size: 1.35rem;
+            }
 
-    transition:all 0.5s ease;
+            .buttons {
+                gap: 15px;
+            }
 
-}
-
-
-/* =========================
-   SOTTOTITOLO
-========================= */
-
-p{
-
-    font-size:1.2em;
-
-    opacity:0.95;
-
-    margin-bottom:35px;
-
-    font-weight:500;
-
-    text-shadow:
-        0 2px 5px rgba(0,0,0,0.1);
-
-}
-
-
-/* =========================
-   COUNTDOWN
-========================= */
-
-#countdown{
-
-    display:flex;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-}
-
-
-.box{
-
-    width:120px;
-
-    height:120px;
-
-    background:rgba(255,255,255,0.25);
-
-    border-radius:24px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-
-    border:
-        1px solid rgba(255,255,255,0.5);
-
-    box-shadow:
-        0 4px 15px rgba(199,21,133,0.15);
-
-    animation:float 4s ease-in-out infinite;
-
-}
-
-
-/* Animazioni singole caselle */
-
-.box:nth-child(2){
-    animation-delay:0.5s;
-}
-
-.box:nth-child(3){
-    animation-delay:1s;
-}
-
-.box:nth-child(4){
-    animation-delay:1.5s;
-}
-
-
-/* Movimento delle caselle */
-
-@keyframes float{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-8px);
-    }
-
-}
-
-
-/* Effetto hover */
-
-.box:hover{
-
-    transform:
-        scale(1.1)
-        translateY(-5px);
-
-    background:
-        rgba(255,255,255,0.4);
-
-    box-shadow:
-        0 8px 25px
-        rgba(255,105,180,0.6);
-
-}
-
-
-/* Numeri */
-
-.number{
-
-    font-size:3em;
-
-    font-weight:800;
-
-    text-shadow:
-        0 2px 5px rgba(0,0,0,0.15);
-
-}
-
-
-/* Etichette */
-
-.label{
-
-    margin-top:5px;
-
-    font-size:0.85em;
-
-    text-transform:uppercase;
-
-    letter-spacing:2px;
-
-    font-weight:600;
-
-}
-
-
-/* =========================
-   MESSAGGIO SEGRETO
-========================= */
-
-#loveMessage{
-
-    display:none;
-
-    font-size:2.2em;
-
-    font-weight:700;
-
-    line-height:1.3;
-
-    text-shadow:
-        0 4px 15px rgba(0,0,0,0.2);
-
-    animation:
-        appear 0.8s ease;
-
-}
-
-
-/* Animazione messaggio */
-
-@keyframes appear{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            scale(0.9);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            scale(1);
-
-    }
-
-}
-
-
-/* =========================
-   BOTTONE
-========================= */
-
-#loveButton{
-
-    margin-top:30px;
-
-    padding:14px 28px;
-
-    border:none;
-
-    border-radius:50px;
-
-    background:
-        rgba(255,255,255,0.3);
-
-    color:white;
-
-    font-size:1em;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    border:
-        1px solid rgba(255,255,255,0.6);
-
-    backdrop-filter:blur(10px);
-
-    box-shadow:
-        0 5px 15px
-        rgba(199,21,133,0.2);
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
-
-}
-
-
-/* Bottone attivo */
-
-#loveButton:hover:not(:disabled){
-
-    transform:
-        scale(1.07);
-
-    background:
-        rgba(255,255,255,0.45);
-
-    box-shadow:
-        0 8px 25px
-        rgba(255,105,180,0.5);
-
-}
-
-
-/* Click */
-
-#loveButton:active:not(:disabled){
-
-    transform:
-        scale(0.95);
-
-}
-
-
-/* Bottone disabilitato */
-
-#loveButton:disabled{
-
-    cursor:not-allowed;
-
-    opacity:0.75;
-
-    background:
-        rgba(255,255,255,0.18);
-
-    box-shadow:
-        0 4px 12px
-        rgba(199,21,133,0.12);
-
-}
-
-
-/* =========================
-   FINE COUNTDOWN
-========================= */
-
-#finished{
-
-    font-size:2.5em;
-
-    font-weight:bold;
-
-    display:none;
-
-    text-shadow:
-        0 4px 15px rgba(0,0,0,0.2);
-
-}
-
-
-/* =========================
-   SMARTPHONE
-========================= */
-
-@media(max-width:700px){
-
-    body{
-
-        padding:15px;
-
-    }
-
-
-    .container{
-
-        padding:32px 18px;
-
-        border-radius:25px;
-
-        max-width:100%;
-
-    }
-
-
-    h1{
-
-        font-size:2em;
-
-        line-height:1.2;
-
-    }
-
-
-    p{
-
-        font-size:1em;
-
-        margin-bottom:25px;
-
-    }
-
-
-    #countdown{
-
-        gap:10px;
-
-    }
-
-
-    .box{
-
-        width:
-            calc(50% - 5px);
-
-        height:95px;
-
-        border-radius:18px;
-
-    }
-
-
-    .number{
-
-        font-size:2em;
-
-    }
-
-
-    .label{
-
-        font-size:0.7em;
-
-        letter-spacing:1.5px;
-
-    }
-
-
-    #loveButton{
-
-        width:90%;
-
-        margin-top:25px;
-
-        padding:13px 18px;
-
-        font-size:0.95em;
-
-    }
-
-
-    #loveMessage{
-
-        font-size:1.65em;
-
-        line-height:1.35;
-
-        padding:
-            10px 5px;
-
-    }
-
-
-    #finished{
-
-        font-size:1.8em;
-
-    }
-
-}
-
-
-/* =========================
-   TELEFONI MOLTO PICCOLI
-========================= */
-
-@media(max-width:380px){
-
-    .container{
-
-        padding:
-            25px 14px;
-
-    }
-
-
-    h1{
-
-        font-size:1.7em;
-
-    }
-
-
-    .box{
-
-        height:85px;
-
-    }
-
-
-    .number{
-
-        font-size:1.7em;
-
-    }
-
-
-    #loveMessage{
-
-        font-size:1.45em;
-
-    }
-
-}
-
-</style>
-
+            button {
+                padding: 13px 28px;
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
-
-<div class="container">
-
-
-    <!-- =====================
-         TITOLO
-    ====================== -->
-
-    <h1 id="title">
-
-        ✨ Manca poco amore🩷 ✨
-
-    </h1>
+    <!-- Cuoricini -->
+    <div class="heart">❤️</div>
+    <div class="heart">♡</div>
+    <div class="heart">💗</div>
+    <div class="heart">💕</div>
+    <div class="heart">❤️</div>
 
 
-    <!-- =====================
-         SOTTOTITOLO
-    ====================== -->
+    <div class="container" id="container">
 
-    <p id="subtitle">
+        <!-- SCHERMATA INIZIALE -->
+        <div id="initialScreen">
 
-        Mancano al 15 Agosto 2026 🥳
+            <h1>
+                scusami se sono stato scontroso cicci 😔🥺
+            </h1>
 
-    </p>
-
-
-    <!-- =====================
-         COUNTDOWN
-    ====================== -->
-
-    <div id="countdown">
-
-
-        <!-- GIORNI -->
-
-        <div class="box">
-
-            <div
-                class="number"
-                id="days"
-            >
-
-                00
-
+            <div class="question">
+                mi perdoni?
             </div>
 
-            <div class="label">
+            <div class="buttons">
 
-                Giorni
+                <button id="yes">
+                    Sì ❤️
+                </button>
+
+                <button id="no">
+                    No 😤
+                </button>
 
             </div>
 
         </div>
 
 
-        <!-- ORE -->
+        <!-- SCHERMATA FINALE -->
+        <div class="final-message" id="finalScreen">
 
-        <div class="box">
-
-            <div
-                class="number"
-                id="hours"
-            >
-
-                00
-
-            </div>
-
-            <div class="label">
-
-                Ore
-
-            </div>
+            <h2>
+                YEEE grazie cicci ❤️🥹<br><br>
+                ti amo ❤️<br><br>
+                vedrai che il tuo compleanno andrà benissimo cicci,
+                non ti preoccupare 🥹❤️
+            </h2>
 
         </div>
-
-
-        <!-- MINUTI -->
-
-        <div class="box">
-
-            <div
-                class="number"
-                id="minutes"
-            >
-
-                00
-
-            </div>
-
-            <div class="label">
-
-                Minuti
-
-            </div>
-
-        </div>
-
-
-        <!-- SECONDI -->
-
-        <div class="box">
-
-            <div
-                class="number"
-                id="seconds"
-            >
-
-                00
-
-            </div>
-
-            <div class="label">
-
-                Secondi
-
-            </div>
-
-        </div>
-
 
     </div>
 
 
-    <!-- =====================
-         MESSAGGIO SEGRETO
-    ====================== -->
+    <script>
 
-    <div id="loveMessage">
+        const yesButton = document.getElementById("yes");
+        const noButton = document.getElementById("no");
 
-        BUON COMPLEANNO❤️<br>
-        AMORE MIO ❤️
+        const initialScreen = document.getElementById("initialScreen");
+        const finalScreen = document.getElementById("finalScreen");
 
-    </div>
+        /*
+         * ============================
+         * BOTTONE "SI"
+         * ============================
+         */
 
+        yesButton.addEventListener("click", function () {
 
-    <!-- =====================
-         BOTTONE
-    ====================== -->
+            initialScreen.style.display = "none";
 
-    <button
-        id="loveButton"
-        onclick="showLoveMessage()"
-        disabled
-    >
+            finalScreen.style.display = "block";
 
-        Lavori in corso..🎂
-
-    </button>
-
-
-    <!-- =====================
-         FINE COUNTDOWN
-    ====================== -->
-
-    <div id="finished">
-
-        🎉 È arrivato il 15 Agosto 2026! 💖
-
-    </div>
-
-
-</div>
-
-
-
-<script>
-
-
-/* ==================================================
-   DATA DEL 15 AGOSTO
-================================================== */
-
-const targetDate =
-
-    new Date(
-        "2026-08-15T00:00:00"
-    ).getTime();
-
-
-
-/* ==================================================
-   FORMATTAZIONE NUMERI
-================================================== */
-
-function formatTime(time){
-
-    return time < 10
-
-        ? `0${time}`
-
-        : time;
-
-}
-
-
-
-/* ==================================================
-   AGGIORNAMENTO COUNTDOWN
-================================================== */
-
-function updateCountdown(){
-
-
-    const now =
-
-        new Date().getTime();
-
-
-    const distance =
-
-        targetDate - now;
-
-
-
-    /* Se il countdown è terminato */
-
-    if(distance <= 0){
-
-
-        document.getElementById(
-            "countdown"
-        ).style.display = "none";
-
-
-        document.getElementById(
-            "finished"
-        ).style.display = "block";
-
-
-        return;
-
-    }
-
-
-
-    /* Giorni */
-
-    const days =
-
-        Math.floor(
-
-            distance /
-            (1000 * 60 * 60 * 24)
-
-        );
-
-
-
-    /* Ore */
-
-    const hours =
-
-        Math.floor(
-
-            (
-                distance %
-                (1000 * 60 * 60 * 24)
-            )
-            /
-            (1000 * 60 * 60)
-
-        );
-
-
-
-    /* Minuti */
-
-    const minutes =
-
-        Math.floor(
-
-            (
-                distance %
-                (1000 * 60 * 60)
-            )
-            /
-            (1000 * 60)
-
-        );
-
-
-
-    /* Secondi */
-
-    const seconds =
-
-        Math.floor(
-
-            (
-                distance %
-                (1000 * 60)
-            )
-            /
-            1000
-
-        );
-
-
-
-    /* Scrive i valori */
-
-    document.getElementById(
-        "days"
-    ).innerHTML =
-
-        formatTime(days);
-
-
-    document.getElementById(
-        "hours"
-    ).innerHTML =
-
-        formatTime(hours);
-
-
-    document.getElementById(
-        "minutes"
-    ).innerHTML =
-
-        formatTime(minutes);
-
-
-    document.getElementById(
-        "seconds"
-    ).innerHTML =
-
-        formatTime(seconds);
-
-}
-
-
-
-/* Avvia countdown */
-
-updateCountdown();
-
-
-setInterval(
-    updateCountdown,
-    1000
-);
-
-
-
-/* ==================================================
-   PERIODO DI ATTIVAZIONE DEL BOTTONE
-================================================== */
-
-/*
-   IL BOTTONE È ATTIVO:
-
-   DAL:
-   14/08/2026 00:00:00
-
-   AL:
-   21/08/2026 00:00:00
-
-   Quindi sono inclusi:
-
-   14 agosto
-   15 agosto
-   16 agosto
-   17 agosto
-   18 agosto
-   19 agosto
-   20 agosto
-
-   Il 21 agosto è nuovamente disattivato.
-*/
-
-
-const buttonStartDate =
-
-    new Date(
-        "2026-08-14T00:00:00"
-    );
-
-
-const buttonEndDate =
-
-    new Date(
-        "2026-08-21T00:00:00"
-    );
-
-
-
-/* ==================================================
-   CONTROLLO DATA DEL BOTTONE
-================================================== */
-
-function checkButtonDate(){
-
-
-    const now =
-
-        new Date();
-
-
-    const button =
-
-        document.getElementById(
-            "loveButton"
-        );
-
-
-
-    /*
-       SE SIAMO TRA IL 14
-       E IL 20 AGOSTO
-    */
-
-    if(
-
-        now >= buttonStartDate &&
-
-        now < buttonEndDate
-
-    ){
-
-
-        button.disabled = false;
-
-
-        button.innerHTML =
-
-            "💌 Premi qui amore 💌";
-
-
-    }
-
-
-    /*
-       PRIMA DEL 14
-       O DAL 21 AGOSTO
-    */
-
-    else{
-
-
-        button.disabled = true;
-
-
-        button.innerHTML =
-
-            "Lavori in corso..🎂";
-
-    }
-
-}
-
-
-
-/* Controllo iniziale */
-
-checkButtonDate();
-
-
-
-/*
-   Controlla ogni secondo.
-
-   Se la pagina è aperta allo scoccare
-   della mezzanotte, il bottone cambia
-   automaticamente.
-*/
-
-setInterval(
-
-    checkButtonDate,
-
-    1000
-
-);
-
-
-
-/* ==================================================
-   MOSTRA MESSAGGIO SEGRETO
-================================================== */
-
-function showLoveMessage(){
-
-
-    const title =
-
-        document.getElementById(
-            "title"
-        );
-
-
-    const subtitle =
-
-        document.getElementById(
-            "subtitle"
-        );
-
-
-    const countdown =
-
-        document.getElementById(
-            "countdown"
-        );
-
-
-    const message =
-
-        document.getElementById(
-            "loveMessage"
-        );
-
-
-    const button =
-
-        document.getElementById(
-            "loveButton"
-        );
-
-
-
-    /* ==================================================
-       CONTROLLO DI SICUREZZA
-    ================================================== */
-
-    const now =
-
-        new Date();
-
-
-
-    /*
-       Se qualcuno prova a richiamare
-       la funzione fuori dal periodo
-       14 → 20 agosto,
-       non succede niente.
-    */
-
-    if(
-
-        now < buttonStartDate ||
-
-        now >= buttonEndDate
-
-    ){
-
-
-        button.disabled = true;
-
-
-        button.innerHTML =
-
-            "Lavori in corso..🎂";
-
-
-        return;
-
-    }
-
-
-
-    /* ==================================================
-       NASCONDE IL CONTENUTO ORIGINALE
-    ================================================== */
-
-    title.style.display = "none";
-
-
-    subtitle.style.display = "none";
-
-
-    countdown.style.display = "none";
-
-
-
-    /*
-       Nasconde anche il messaggio
-       di fine countdown.
-    */
-
-    document.getElementById(
-        "finished"
-    ).style.display = "none";
-
-
-
-    /* ==================================================
-       MOSTRA IL MESSAGGIO SEGRETO
-    ================================================== */
-
-    message.style.display = "block";
-
-
-
-    /* Cambia scritta bottone */
-
-    button.innerHTML =
-
-        "🩷 Ti amo 🩷";
-
-
-
-    /*
-       DOPO 30 SECONDI
-       TORNA TUTTO COME PRIMA
-    */
-
-    setTimeout(function(){
-
-
-        message.style.display =
-
-            "none";
-
-
-        title.style.display =
-
-            "block";
-
-
-        subtitle.style.display =
-
-            "block";
-
+        });
 
 
         /*
-           Controlliamo che il countdown
-           sia ancora valido.
-        */
+         * ============================
+         * BOTTONE "NO"
+         * ============================
+         *
+         * Ogni volta che viene premuto,
+         * si sposta in una posizione casuale.
+         */
 
-        const currentTime =
+        noButton.addEventListener("click", function () {
 
-            new Date();
+            const buttonWidth = noButton.offsetWidth;
+            const buttonHeight = noButton.offsetHeight;
 
+            const maxX = window.innerWidth - buttonWidth - 20;
+            const maxY = window.innerHeight - buttonHeight - 20;
 
+            const randomX = Math.max(
+                20,
+                Math.floor(Math.random() * maxX)
+            );
 
-        /*
-           Se siamo prima del 15 agosto,
-           mostra ancora il countdown.
-        */
+            const randomY = Math.max(
+                20,
+                Math.floor(Math.random() * maxY)
+            );
 
-        if(
+            noButton.style.position = "fixed";
 
-            currentTime <
+            noButton.style.left = randomX + "px";
+            noButton.style.top = randomY + "px";
 
-            new Date(
-                "2026-08-15T00:00:00"
-            )
+        });
 
-        ){
-
-
-            countdown.style.display =
-
-                "flex";
-
-
-            document.getElementById(
-                "finished"
-            ).style.display =
-
-                "none";
-
-        }
-
-
-        /*
-           Se siamo dal 15 agosto in poi,
-           mostra il messaggio di fine countdown.
-        */
-
-        else{
-
-
-            countdown.style.display =
-
-                "none";
-
-
-            document.getElementById(
-                "finished"
-            ).style.display =
-
-                "block";
-
-        }
-
-
-
-        /*
-           Controlliamo nuovamente
-           se il bottone è ancora
-           nel periodo 14 → 20 agosto.
-        */
-
-        checkButtonDate();
-
-
-    }, 30000);
-
-}
-
-
-</script>
-
+    </script>
 
 </body>
-
 </html>
